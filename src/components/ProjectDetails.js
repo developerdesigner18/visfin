@@ -1,22 +1,92 @@
-import {
-  Accordion,
-  Form,
-  Button,
-  Row,
-  Col,
-  InputGroup,
-  ButtonGroup,
-  ToggleButton,
-} from "react-bootstrap";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { useState } from "react";
+import { Accordion, Form, Button, Row, Col, InputGroup } from "react-bootstrap";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import CashFlowForm from "./CashFlowForm";
 
-const radios = [
-  { name: "Active", value: "1" },
-  { name: "Radio", value: "2" },
-  { name: "Radio", value: "3" },
+const cashFlowFormData = [
+  {
+    id: "1",
+    title: "BuiltForm",
+    cashFlowType: "Expense",
+    derivative: false,
+    value: 500000,
+    units: 1,
+    paymentSchedule: "start",
+    start: 1,
+    end: 3,
+  },
+  {
+    id: "2",
+    title: "BuiltForm 1",
+    cashFlowType: "Income",
+    derivative: false,
+    value: 5000000,
+    units: 2,
+    paymentSchedule: "normal",
+    start: 13,
+    end: 21,
+  },
+  {
+    id: "3",
+    title: "BuiltForm 2",
+    cashFlowType: "Equity",
+    derivative: true,
+    value: 1000000,
+    units: 3,
+    paymentSchedule: "recurring",
+    start: 3,
+    end: 13,
+  },
 ];
 
+const getItems = (count) =>
+  Array.from({ length: count }, (v, k) => k).map((k) => ({
+    id: `item-${k}`,
+    content: `item ${k}`,
+  }));
+
+// a little function to help us with reordering the result
+const reorder = (list, startIndex, endIndex) => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+
+  return result;
+};
+
+const grid = 8;
+
+const getItemStyle = (isDragging, draggableStyle) => ({
+  // some basic styles to make the items look a bit nicer
+  userSelect: "none",
+  padding: grid * 2,
+  margin: `0 0 ${grid}px 0`,
+
+  // change background colour if dragging
+  background: isDragging ? "lightgreen" : "grey",
+
+  // styles we need to apply on draggables
+  ...draggableStyle,
+});
+
 const ProjectDetails = () => {
+  const [items, setItems] = useState(getItems(10));
+
+  const onDragEnd = (result) => {
+    // dropped outside the list
+    if (!result.destination) {
+      return;
+    }
+
+    const newItems = reorder(
+      items,
+      result.source.index,
+      result.destination.index
+    );
+
+    setItems(newItems);
+  };
+
   return (
     <>
       <Accordion defaultActiveKey={"projectDetails"}>
@@ -157,207 +227,36 @@ const ProjectDetails = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        {/* ---------------------------------------Built Form--------------------------------------- */}
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="droppable">
+            {(provided, snapshot) => (
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                {cashFlowFormData.map((item, index) => (
+                  <Draggable key={item.id} draggableId={item.id} index={index}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <div className="dragIcon">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                        <CashFlowForm cashFlowFormData={item} />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
 
-        <Accordion.Item eventKey="builtForm">
-          <Accordion.Header>Built Form</Accordion.Header>
-          <Accordion.Body>
-            <Accordion>
-              <Accordion.Item>
-                <Accordion.Header>Land Acquisition Cost</Accordion.Header>
-                <Accordion.Body style={{ width: "100%" }}>
-                  <Form>
-                    <Form.Group
-                      className="align-items-center"
-                      as={Row}
-                      controlId="cashFlowType"
-                    >
-                      <Form.Label column sm="5">
-                        Cash Flow Type
-                      </Form.Label>
-                      <Col sm="7">
-                        <Form.Select size="sm">
-                          <option value="expense">Expense</option>
-                          <option value="income">Income</option>
-                          <option value="equity">Equity</option>
-                          <option value="loan">Loan</option>
-                        </Form.Select>
-                      </Col>
-                    </Form.Group>
-
-                    <Form.Group
-                      className="align-items-center"
-                      as={Row}
-                      controlId="derivative"
-                    >
-                      <Form.Label column sm="5">
-                        Derivative
-                      </Form.Label>
-                      <Col sm="7">
-                        <Form.Check type="checkbox" id="derivative" />
-                      </Col>
-                    </Form.Group>
-
-                    {/* <Form.Group
-                      className="align-items-center"
-                      as={Row}
-                      controlId="value"
-                    >
-                      <Form.Label column sm="5">
-                        Cash Flow Type
-                      </Form.Label>
-                      <Col sm="7">
-                        <Row>
-                          <InputGroup size="sm">
-                            <InputGroup.Text id="value">$</InputGroup.Text>
-                            <Form.Control type="number" />
-                          </InputGroup>
-                          <span>X</span>
-                          <Form.Group controlId="value1">
-                            <Form.Control type="number" />
-                          </Form.Group>
-                          <span> = $5.00M</span>
-                        </Row>
-                      </Col>
-                    </Form.Group> */}
-
-                    <hr />
-
-                    <Form.Group
-                      className="align-items-center"
-                      as={Row}
-                      controlId="paymentSchedule"
-                    >
-                      <Form.Label column sm="5">
-                        Payment Schedule
-                      </Form.Label>
-                      <Col sm="7">
-                        <ButtonGroup>
-                          {radios.map((radio, idx) => (
-                            <ToggleButton
-                              key={idx}
-                              id={`radio-${idx}`}
-                              type="radio"
-                              variant="secondary"
-                              name="radio"
-                              //   value={radio.value}
-                              //   checked={radioValue === radio.value}
-                              //   onChange={(e) =>
-                              //     setRadioValue(e.currentTarget.value)
-                              //   }
-                            >
-                              {radio.name}
-                            </ToggleButton>
-                          ))}
-                        </ButtonGroup>
-                      </Col>
-                    </Form.Group>
-                  </Form>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-          </Accordion.Body>
-        </Accordion.Item>
-
-        <Accordion.Item eventKey="builtForm">
-          <Accordion.Header>Built Form</Accordion.Header>
-          <Accordion.Body>
-            <Accordion>
-              <Accordion.Item>
-                <Accordion.Header>Land Acquisition Cost</Accordion.Header>
-                <Accordion.Body style={{ width: "100%" }}>
-                  <Form>
-                    <Form.Group
-                      className="align-items-center"
-                      as={Row}
-                      controlId="cashFlowType"
-                    >
-                      <Form.Label column sm="5">
-                        Cash Flow Type
-                      </Form.Label>
-                      <Col sm="7">
-                        <Form.Select size="sm">
-                          <option value="expense">Expense</option>
-                          <option value="income">Income</option>
-                          <option value="equity">Equity</option>
-                          <option value="loan">Loan</option>
-                        </Form.Select>
-                      </Col>
-                    </Form.Group>
-
-                    <Form.Group
-                      className="align-items-center"
-                      as={Row}
-                      controlId="derivative"
-                    >
-                      <Form.Label column sm="5">
-                        Derivative
-                      </Form.Label>
-                      <Col sm="7">
-                        <Form.Check type="checkbox" id="derivative" />
-                      </Col>
-                    </Form.Group>
-
-                    {/* <Form.Group
-                      className="align-items-center"
-                      as={Row}
-                      controlId="value"
-                    >
-                      <Form.Label column sm="5">
-                        Cash Flow Type
-                      </Form.Label>
-                      <Col sm="7">
-                        <Row>
-                          <InputGroup size="sm">
-                            <InputGroup.Text id="value">$</InputGroup.Text>
-                            <Form.Control type="number" />
-                          </InputGroup>
-                          <span>X</span>
-                          <Form.Group controlId="value1">
-                            <Form.Control type="number" />
-                          </Form.Group>
-                          <span> = $5.00M</span>
-                        </Row>
-                      </Col>
-                    </Form.Group> */}
-
-                    <hr />
-
-                    <Form.Group
-                      className="align-items-center"
-                      as={Row}
-                      controlId="paymentSchedule"
-                    >
-                      <Form.Label column sm="5">
-                        Payment Schedule
-                      </Form.Label>
-                      <Col sm="7">
-                        <ButtonGroup>
-                          {radios.map((radio, idx) => (
-                            <ToggleButton
-                              key={idx}
-                              id={`radio-${idx}`}
-                              type="radio"
-                              variant="secondary"
-                              name="radio"
-                              //   value={radio.value}
-                              //   checked={radioValue === radio.value}
-                              //   onChange={(e) =>
-                              //     setRadioValue(e.currentTarget.value)
-                              //   }
-                            >
-                              {radio.name}
-                            </ToggleButton>
-                          ))}
-                        </ButtonGroup>
-                      </Col>
-                    </Form.Group>
-                  </Form>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-          </Accordion.Body>
-        </Accordion.Item>
+          {/* ---------------------------------------Built Form1--------------------------------------- */}
+          {/* <CashFlowForm /> */}
+        </DragDropContext>
       </Accordion>
     </>
   );

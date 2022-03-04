@@ -2,10 +2,15 @@ import { Col, Container, Row } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="bg-secondary">
       <Container>
         <Row>
-          <Col className="py-3">Copyright &copy; VisualFin</Col>
+          <Col className="py-3 d-flex">
+            Copyright &copy;
+            <div className="footer__logo">
+              <img src="/images/logo.png" alt="VisualFin Logo" />
+            </div>
+          </Col>
         </Row>
       </Container>
     </footer>

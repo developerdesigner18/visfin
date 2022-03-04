@@ -16,3 +16,26 @@ code {
 img {
   width: 100%;
 }
+
+.header__logo {
+  width: 150px;
+}
+
+.footer__logo {
+  width: 80px;
+}
+
+/* Drag Icon */
+.dragIcon {
+  display: flex;
+  flex-direction: column;
+}
+
+.dragIcon span {
+  width: 10px;
+  height: 3px;
+}
+
+.dragIcon span:not(:last-child) {
+  margin-bottom: 2px;
+}

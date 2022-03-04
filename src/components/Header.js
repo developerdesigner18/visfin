@@ -5,7 +5,11 @@ const Header = () => {
     <header>
       <Navbar bg="light">
         <Container>
-          <Navbar.Brand href="#home">VisualFin</Navbar.Brand>
+          <Navbar.Brand href="/">
+            <div className="header__logo">
+              <img src="/images/logo.png" alt="VisFin Logo" />
+            </div>
+          </Navbar.Brand>
         </Container>
       </Navbar>
     </header>
