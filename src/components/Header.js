@@ -1,8 +1,9 @@
+// Bootstrap
 import { Container, Navbar } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <header>
+    <header className="border__visfin border__visfin--bottom">
       <Navbar bg="light">
         <Container>
           <Navbar.Brand href="/">

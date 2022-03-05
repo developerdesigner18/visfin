@@ -1,3 +1,4 @@
+// Bootstrap
 import {
   Form,
   Row,
@@ -7,6 +8,9 @@ import {
   Accordion,
 } from "react-bootstrap";
 
+// Components
+import Divider from "./Divider";
+
 const radios = [
   { name: "Active", value: "1" },
   { name: "Radio", value: "2" },
@@ -15,7 +19,7 @@ const radios = [
 
 const CashFlowForm = ({ cashFlowFormData }) => {
   return (
-    <Accordion.Item eventKey="builtForm1">
+    <Accordion.Item eventKey={cashFlowFormData.id}>
       <Accordion.Header>{cashFlowFormData.title}</Accordion.Header>
       <Accordion.Body>
         <Accordion>
@@ -61,30 +65,7 @@ const CashFlowForm = ({ cashFlowFormData }) => {
                   </Col>
                 </Form.Group>
 
-                {/* <Form.Group
-    className="align-items-center"
-    as={Row}
-    controlId="value"
-  >
-    <Form.Label column sm="5">
-      Cash Flow Type
-    </Form.Label>
-    <Col sm="7">
-      <Row>
-        <InputGroup size="sm">
-          <InputGroup.Text id="value">$</InputGroup.Text>
-          <Form.Control type="number" />
-        </InputGroup>
-        <span>X</span>
-        <Form.Group controlId="value1">
-          <Form.Control type="number" />
-        </Form.Group>
-        <span> = $5.00M</span>
-      </Row>
-    </Col>
-  </Form.Group> */}
-
-                <hr />
+                <Divider />
 
                 <Form.Group
                   className="align-items-center"

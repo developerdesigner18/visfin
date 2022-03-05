@@ -1,3 +1,4 @@
+// Bootstrap
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,6 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+// Chart Data
 import { chartData } from "../data/chartData";
 
 ChartJS.register(

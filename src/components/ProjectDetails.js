@@ -1,7 +1,11 @@
 import { useState } from "react";
+// Bootstrap
 import { Accordion, Form, Button, Row, Col, InputGroup } from "react-bootstrap";
+// React Beautiful dnd
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+// Components
 import CashFlowForm from "./CashFlowForm";
+import Divider from "./Divider";
 
 const cashFlowFormData = [
   {
@@ -53,21 +57,6 @@ const reorder = (list, startIndex, endIndex) => {
 
   return result;
 };
-
-const grid = 8;
-
-const getItemStyle = (isDragging, draggableStyle) => ({
-  // some basic styles to make the items look a bit nicer
-  userSelect: "none",
-  padding: grid * 2,
-  margin: `0 0 ${grid}px 0`,
-
-  // change background colour if dragging
-  background: isDragging ? "lightgreen" : "grey",
-
-  // styles we need to apply on draggables
-  ...draggableStyle,
-});
 
 const ProjectDetails = () => {
   const [items, setItems] = useState(getItems(10));
@@ -206,7 +195,7 @@ const ProjectDetails = () => {
                 </Col>
               </Form.Group>
 
-              <hr />
+              <Divider />
 
               <Form.Group
                 className="align-items-center"
@@ -238,12 +227,11 @@ const ProjectDetails = () => {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
+                        style={{
+                          minHeight: 40,
+                          ...provided.draggableProps.style,
+                        }}
                       >
-                        <div className="dragIcon">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                        </div>
                         <CashFlowForm cashFlowFormData={item} />
                       </div>
                     )}
@@ -253,9 +241,6 @@ const ProjectDetails = () => {
               </div>
             )}
           </Droppable>
-
-          {/* ---------------------------------------Built Form1--------------------------------------- */}
-          {/* <CashFlowForm /> */}
         </DragDropContext>
       </Accordion>
     </>

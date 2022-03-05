@@ -9,6 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+// Chart data
 import { chartData } from "../data/chartData";
 
 ChartJS.register(
