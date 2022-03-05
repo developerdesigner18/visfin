@@ -1,6 +1,5 @@
 // Bootstrap
 import { Col, Row } from "react-bootstrap";
-
 // Components
 import BarChart from "../components/BarChart";
 import LineChart from "../components/LineChart";

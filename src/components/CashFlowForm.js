@@ -7,7 +7,6 @@ import {
   ToggleButton,
   Accordion,
 } from "react-bootstrap";
-
 // Components
 import Divider from "./Divider";
 

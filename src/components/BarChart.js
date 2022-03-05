@@ -1,4 +1,4 @@
-// Bootstrap
+// React chart-js-2
 import {
   Chart as ChartJS,
   CategoryScale,
