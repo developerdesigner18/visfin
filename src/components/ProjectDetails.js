@@ -118,7 +118,7 @@ const ProjectDetails = () => {
             </Form>
             <div className="d-grid mt-3">
               <Button className="btn-block" size="sm">
-                Export Transactions
+                Export Transactions <i class="fa-solid fa-table-list"></i>
               </Button>
             </div>
           </Accordion.Body>
@@ -243,6 +243,17 @@ const ProjectDetails = () => {
           </Droppable>
         </DragDropContext>
       </Accordion>
+      <div className="d-flex justify-content-between mt-1">
+        <Button>
+          <i class="fa-solid fa-plus"></i> Add New Group
+        </Button>
+        <Button>
+          <i class="fa-solid fa-square-arrow-up-right"></i> Open
+        </Button>
+        <Button>
+          <i class="fa-solid fa-floppy-disk"></i> Save
+        </Button>
+      </div>
     </>
   );
 };
