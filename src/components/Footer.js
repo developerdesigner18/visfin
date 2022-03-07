@@ -1,5 +1,6 @@
 // Bootstrap
 import { Col, Container, Row } from "react-bootstrap";
+import { LOGO_DARK } from "../AppConfig";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
             <Col className="py-3 d-flex">
               Copyright &copy;
               <div className="footer__logo">
-                <img src="/images/logo.png" alt="VisualFin Logo" />
+                <img src={LOGO_DARK} alt="VisualFin Logo" />
               </div>
             </Col>
           </Row>

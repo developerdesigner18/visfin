@@ -1,5 +1,6 @@
 // Bootstrap
 import { Container, Navbar } from "react-bootstrap";
+import { LOGO_DARK } from "../AppConfig";
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
         <Container>
           <Navbar.Brand href="/">
             <div className="header__logo">
-              <img src="/images/logo.png" alt="VisFin Logo" />
+              <img src={LOGO_DARK} alt="VisFin Logo" />
             </div>
           </Navbar.Brand>
         </Container>

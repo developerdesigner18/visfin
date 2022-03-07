@@ -1,3 +1,4 @@
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 // Bootstrap
 import { Container } from "react-bootstrap";
 // Components
@@ -7,13 +8,15 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
       <Container>
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
       </Container>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
