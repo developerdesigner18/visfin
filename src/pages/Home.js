@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 // Bootstrap
 import { Button } from "react-bootstrap";
 // Components
@@ -11,8 +12,10 @@ const Home = () => {
       {/* ---------------------------------------Hero Section--------------------------------------- */}
       <div className="hero">
         <div className="hero__content">
-          <h1 className="hero__title font-bold">Create a new Project</h1>
-          <Divider />
+          <h1 className="hero__title font-bold">
+            Create <br /> a new Project
+          </h1>
+          {/* <Divider /> */}
           <p className="hero__subtitle">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
             deserunt porro est, rem quos dolorum nostrum velit eos ex architecto
@@ -34,12 +37,14 @@ const Home = () => {
         <Divider />
         <div className="existingProjects__cards">
           {existingProjects.map(({ id, name, location, user, description }) => (
-            <div key={id} className="border__visfin">
-              <div className="existingProjects__card ">
-                <h5>{name}</h5>
-                <p>{description}</p>
-                <Button size="sm">View Project</Button>
-              </div>
+            <div key={id} className="existingProjects__card ">
+              <h5>{name}</h5>
+              <p>{description}</p>
+              <Link to="project-detail">
+                <Button variant="outline-primary" size="sm">
+                  View Project
+                </Button>
+              </Link>
             </div>
           ))}
         </div>

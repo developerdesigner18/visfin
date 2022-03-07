@@ -85,6 +85,24 @@ p {
 
 .hero__title {
   font-weight: bold;
+  background: -webkit-linear-gradient(
+    110deg,
+    hsla(var(--color-gradient1, 1)) 0%,
+    hsla(var(--color-gradient2, 1)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: titleAnimation 10s infinite linear;
+}
+
+/* Hero Title Animation */
+@keyframes titleAnimation {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }
 
 .hero__img {
@@ -114,6 +132,11 @@ p {
   width: 250px;
   padding: 1em;
   text-align: center;
+  border: 1px solid lightgray;
+}
+
+.existingProjects__card p {
+  margin-top: 1.1em;
 }
 
 .existingProjects__card h5 {
@@ -129,7 +152,7 @@ p {
   font-weight: bold;
 }
 
-/* Check it */
+/* TODO: Check this media-query and reassign it according to bootstrap breakpoint */
 @media only screen and (min-width: 600px) {
   .statistics {
     display: flex;
