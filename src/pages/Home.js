@@ -8,7 +8,7 @@ import { existingProjects } from "../data/existingProjectsData";
 
 const Home = () => {
   return (
-    <div className="home">
+    <div className="home py-4">
       {/* ---------------------------------------Hero Section--------------------------------------- */}
       <div className="hero">
         <div className="hero__content">
@@ -21,7 +21,9 @@ const Home = () => {
             deserunt porro est, rem quos dolorum nostrum velit eos ex architecto
             vel laboriosam rerum dignissimos nam distinctio natus.
           </p>
-          <Button size="sm">Create Project</Button>
+          <Link to="project-summary">
+            <Button size="sm">Create Project</Button>
+          </Link>
         </div>
 
         <div>
@@ -32,19 +34,21 @@ const Home = () => {
       </div>
 
       {/* ---------------------------------------Existing Projects--------------------------------------- */}
-      <div className="existingProjects">
+      <div className="existingProjects py-4">
         <h2>Explore Existing Projects</h2>
         <Divider />
-        <div className="existingProjects__cards">
-          {existingProjects.map(({ id, name, location, user, description }) => (
-            <Link key={id} to={`project-detail/${name}`} className="td-none">
-              <div className="existingProjects__card ">
-                <p>{description}</p>
-                <h5>{name}</h5>
-                <span className="existingProjects__arrow">&rarr;</span>
-              </div>
-            </Link>
-          ))}
+        <div className="visfin-cards">
+          {existingProjects.map(
+            ({ id, name, location, user, description, slug }) => (
+              <Link key={id} to={`project-detail/${slug}`} className="td-none">
+                <div className="visfin-card">
+                  <p>{description}</p>
+                  <h5>{name}</h5>
+                  <span className="existingProjects__arrow">&rarr;</span>
+                </div>
+              </Link>
+            )
+          )}
         </div>
       </div>
     </div>

@@ -23,10 +23,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/project-detail/:name" element={<ProjectDetail />} />
           <Route path="/project-summary" element={<ProjectSummary />} />
-          <Route path="/project-finance" element={<ProjectFinance />} />
-          <Route path="/build-cashflows" element={<BuildCashflows />} />
-          <Route path="/summary-kpis" element={<SummaryKpis />} />
-          <Route path="/esg-and-sustainability" element={<Esg />} />
+          <Route exact path="/project-finance" element={<ProjectFinance />} />
+          <Route exact path="/build-cashflows" element={<BuildCashflows />} />
+          <Route exact path="/summary-kpis" element={<SummaryKpis />} />
+          <Route exact path="/esg-and-sustainability" element={<Esg />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>

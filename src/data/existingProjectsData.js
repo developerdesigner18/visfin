@@ -6,6 +6,7 @@ export const existingProjects = [
     user: "Madhav",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptas sed perspiciatis?",
+    slug: "cash-flow",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const existingProjects = [
     user: "Madhav",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptas sed perspiciatis?",
+    slug: "unnammed",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const existingProjects = [
     user: "Madhav",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptas sed perspiciatis?",
+    slug: "new-project",
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const existingProjects = [
     user: "Madhav",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptas sed perspiciatis?",
+    slug: "newer-project",
   },
   {
     id: 5,
@@ -38,5 +42,6 @@ export const existingProjects = [
     user: "Madhav",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptas sed perspiciatis?",
+    slug: "newest-project",
   },
 ];

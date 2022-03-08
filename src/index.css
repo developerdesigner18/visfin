@@ -41,6 +41,11 @@ img {
   width: 100%;
 }
 
+h2,
+h6 {
+  font-weight: bold;
+}
+
 .header__logo {
   width: 150px;
 }
@@ -57,6 +62,49 @@ p {
 /* ------------------------------GLOBAL STYLES------------------------------ */
 .td-none {
   text-decoration: none;
+}
+
+/* visFin Card */
+.visfin-cards {
+  margin-top: 2em;
+  display: grid;
+  place-items: center;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.visfin-card {
+  background: #ffffff;
+  width: 240px;
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid var(--color-lightgray);
+  border-bottom: 3px solid var(--color-primary);
+  aspect-ratio: 1 / 0.8;
+  transition: var(--transition);
+  position: relative;
+}
+
+.visfin-card:hover {
+  transform: scale(1.25);
+  background: #000000;
+  border: none;
+  z-index: 1;
+}
+
+.visfin-card:hover p {
+  color: #ffffff;
+}
+
+.visfin-card p {
+  margin-top: auto;
+}
+
+.visfin-card h5 {
+  margin: 0;
+  margin-top: auto;
+  font-weight: bold;
+  margin-right: auto;
 }
 
 /* ------------------------------Gradient Border------------------------------ */
@@ -92,7 +140,6 @@ p {
 
 /* ------------------------------Hero Section------------------------------ */
 .hero {
-  padding: 2em 0;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -129,55 +176,8 @@ p {
 }
 
 /* ------------------------------Existing Projects Section------------------------------ */
-.existingProjects {
-  padding: 2em 0;
-}
-
 .existingProjects h2 {
-  font-weight: bold;
   text-align: center;
-}
-
-.existingProjects__cards {
-  margin-top: 2em;
-  display: grid;
-  place-items: center;
-  gap: 1em;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.existingProjects__card {
-  background: #ffffff;
-  max-width: 240px;
-  padding: 1rem;
-  text-align: left;
-  border: 1px solid var(--color-lightgray);
-  border-bottom: 3px solid var(--color-primary);
-  aspect-ratio: 1 / 0.8;
-  transition: var(--transition);
-  position: relative;
-}
-
-.existingProjects__card:hover {
-  transform: scale(1.25);
-  background: #000000;
-  border: none;
-  z-index: 1;
-}
-
-.existingProjects__card:hover p {
-  color: #ffffff;
-}
-
-.existingProjects__card p {
-  margin-top: auto;
-}
-
-.existingProjects__card h5 {
-  margin: 0;
-  margin-top: auto;
-  font-weight: bold;
-  margin-right: auto;
 }
 
 .existingProjects__arrow {
@@ -190,16 +190,34 @@ p {
 
 /* ------------------------------Project Detail------------------------------ */
 .projectDetail {
-  padding: 2em 0;
   max-width: 60rem;
-  height: 100vh;
-}
-
-.projectDetail h2 {
-  font-weight: bold;
+  min-height: 100vh;
 }
 
 .projectDetail__details {
+}
+
+/* ------------------------------Project Summary------------------------------ */
+.projectSummary {
+  /* max-width: 60rem; */
+  min-height: 100vh;
+}
+
+/* ------------------------------Project Summary------------------------------ */
+.projectFinance {
+  min-height: 100vh;
+}
+/* ------------------------------Build Cashflows------------------------------ */
+.buildCashFlows {
+  min-height: 100vh;
+}
+/* ------------------------------Summary KPIs------------------------------ */
+.summaryKpis {
+  min-height: 100vh;
+}
+/* ------------------------------ESG & Sustainability Score------------------------------ */
+.esg {
+  min-height: 100vh;
 }
 
 /* ------------------------------Statistics------------------------------ */
