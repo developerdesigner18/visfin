@@ -21,7 +21,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/project-detail" element={<ProjectDetail />} />
+          <Route path="/project-detail/:name" element={<ProjectDetail />} />
           <Route path="/project-summary" element={<ProjectSummary />} />
           <Route path="/project-finance" element={<ProjectFinance />} />
           <Route path="/build-cashflows" element={<BuildCashflows />} />

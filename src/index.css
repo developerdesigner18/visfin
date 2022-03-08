@@ -19,11 +19,24 @@
 
 /* --------------------------------------------------------------------------------------------------------------------------------- */
 :root {
+  --color-primary: #36a7de;
+  --color-dark: #051014;
+  --color-gray: #808080;
+  --color-lightgray: #d3d3d3;
+
   --color-gradient1: 261, 100%, 86%;
   --color-gradient2: 195, 100%, 33%;
+
+  --transition: all 350ms ease;
 }
 
 /* ------------------------------RESET STYLES------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 img {
   width: 100%;
 }
@@ -38,7 +51,12 @@ img {
 
 p {
   font-size: 0.9em;
-  color: gray;
+  color: var(--color-gray);
+}
+
+/* ------------------------------GLOBAL STYLES------------------------------ */
+.td-none {
+  text-decoration: none;
 }
 
 /* ------------------------------Gradient Border------------------------------ */
@@ -85,6 +103,7 @@ p {
 
 .hero__title {
   font-weight: bold;
+  line-height: 1;
   background: -webkit-linear-gradient(
     110deg,
     hsla(var(--color-gradient1, 1)) 0%,
@@ -101,7 +120,7 @@ p {
     -webkit-filter: hue-rotate(0deg);
   }
   100% {
-    -webkit-filter: hue-rotate(-360deg);
+    -webkit-filter: hue-rotate(360deg);
   }
 }
 
@@ -129,18 +148,58 @@ p {
 
 .existingProjects__card {
   background: #ffffff;
-  width: 250px;
-  padding: 1em;
-  text-align: center;
-  border: 1px solid lightgray;
+  max-width: 240px;
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid var(--color-lightgray);
+  border-bottom: 3px solid var(--color-primary);
+  aspect-ratio: 1 / 0.8;
+  transition: var(--transition);
+  position: relative;
+}
+
+.existingProjects__card:hover {
+  transform: scale(1.25);
+  background: #000000;
+  border: none;
+  z-index: 1;
+}
+
+.existingProjects__card:hover p {
+  color: #ffffff;
 }
 
 .existingProjects__card p {
-  margin-top: 1.1em;
+  margin-top: auto;
 }
 
 .existingProjects__card h5 {
+  margin: 0;
+  margin-top: auto;
   font-weight: bold;
+  margin-right: auto;
+}
+
+.existingProjects__arrow {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
+
+/* ------------------------------Project Detail------------------------------ */
+.projectDetail {
+  padding: 2em 0;
+  max-width: 60rem;
+  height: 100vh;
+}
+
+.projectDetail h2 {
+  font-weight: bold;
+}
+
+.projectDetail__details {
 }
 
 /* ------------------------------Statistics------------------------------ */
@@ -174,5 +233,10 @@ p {
 
   .existingProjects h2 {
     text-align: left;
+  }
+
+  .projectDetail__left-col {
+    height: 100%;
+    width: 100%;
   }
 }

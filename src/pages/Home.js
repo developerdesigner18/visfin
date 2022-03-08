@@ -37,15 +37,13 @@ const Home = () => {
         <Divider />
         <div className="existingProjects__cards">
           {existingProjects.map(({ id, name, location, user, description }) => (
-            <div key={id} className="existingProjects__card ">
-              <h5>{name}</h5>
-              <p>{description}</p>
-              <Link to="project-detail">
-                <Button variant="outline-primary" size="sm">
-                  View Project
-                </Button>
-              </Link>
-            </div>
+            <Link key={id} to={`project-detail/${name}`} className="td-none">
+              <div className="existingProjects__card ">
+                <p>{description}</p>
+                <h5>{name}</h5>
+                <span className="existingProjects__arrow">&rarr;</span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

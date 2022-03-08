@@ -4,7 +4,7 @@ import { LOGO_DARK } from "../AppConfig";
 
 const Footer = () => {
   return (
-    <div className="border__visfin border__visfin--top">
+    <div className="footer border__visfin border__visfin--top">
       <footer className="bg-secondary">
         <Container>
           <Row>
