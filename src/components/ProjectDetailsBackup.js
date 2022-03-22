@@ -1,21 +1,47 @@
 import { useState } from "react";
 // Bootstrap
-import {
-  Accordion,
-  Form,
-  Button,
-  Row,
-  Col,
-  InputGroup,
-  Card,
-} from "react-bootstrap";
+import { Accordion, Form, Button, Row, Col, InputGroup } from "react-bootstrap";
 // React Beautiful dnd
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 // Components
 import CashFlowForm from "./CashFlowForm";
 import Divider from "./Divider";
-// Dummy Data
-import { cashFlowFormData as data } from "../data/cashFlowFormData";
+
+const cashFlowFormData = [
+  {
+    id: "1",
+    title: "BuiltForm",
+    cashFlowType: "Expense",
+    derivative: false,
+    value: 500000,
+    units: 1,
+    paymentSchedule: "start",
+    start: 1,
+    end: 3,
+  },
+  {
+    id: "2",
+    title: "BuiltForm 1",
+    cashFlowType: "Income",
+    derivative: false,
+    value: 5000000,
+    units: 2,
+    paymentSchedule: "normal",
+    start: 13,
+    end: 21,
+  },
+  {
+    id: "3",
+    title: "BuiltForm 2",
+    cashFlowType: "Equity",
+    derivative: true,
+    value: 1000000,
+    units: 3,
+    paymentSchedule: "recurring",
+    start: 3,
+    end: 13,
+  },
+];
 
 const getItems = (count) =>
   Array.from({ length: count }, (v, k) => k).map((k) => ({
@@ -34,9 +60,7 @@ const reorder = (list, startIndex, endIndex) => {
 
 const ProjectDetails = () => {
   const [items, setItems] = useState(getItems(10));
-  const [cashFlowFormData, setCashFlowFormData] = useState(data);
 
-  // ! React Beautiful dnd---------------------------------------
   const onDragEnd = (result) => {
     // dropped outside the list
     if (!result.destination) {
@@ -50,24 +74,6 @@ const ProjectDetails = () => {
     );
 
     setItems(newItems);
-  };
-
-  // ! Add New Group---------------------------------------
-  const handleAddNewGroup = () => {
-    setCashFlowFormData([
-      ...cashFlowFormData,
-      {
-        id: "2",
-        title: "BuiltForm 1",
-        cashFlowType: "Income",
-        derivative: false,
-        value: 5000000,
-        units: 2,
-        paymentSchedule: "normal",
-        start: 13,
-        end: 21,
-      },
-    ]);
   };
 
   return (
@@ -227,7 +233,6 @@ const ProjectDetails = () => {
                         }}
                       >
                         <CashFlowForm cashFlowFormData={item} />
-                        {/* <Card>Hello</Card> */}
                       </div>
                     )}
                   </Draggable>
@@ -239,7 +244,7 @@ const ProjectDetails = () => {
         </DragDropContext>
       </Accordion>
       <div className="d-flex justify-content-between mt-1">
-        <Button onClick={handleAddNewGroup}>
+        <Button>
           <i className="fa-solid fa-plus"></i> Add New Group
         </Button>
         <Button>

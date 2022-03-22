@@ -15,7 +15,6 @@ const Home = () => {
           <h1 className="hero__title font-bold">
             Create <br /> a new Project
           </h1>
-          {/* <Divider /> */}
           <p className="hero__subtitle">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
             deserunt porro est, rem quos dolorum nostrum velit eos ex architecto

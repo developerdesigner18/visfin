@@ -11,12 +11,14 @@ import SummaryKpis from "./pages/SummaryKpis";
 import Esg from "./pages/Esg";
 import NotFound from "./pages/NotFound";
 // Components
+import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
       <Container>
         <Routes>

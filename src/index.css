@@ -46,14 +46,6 @@ h6 {
   font-weight: bold;
 }
 
-.header__logo {
-  width: 150px;
-}
-
-.footer__logo {
-  width: 80px;
-}
-
 p {
   font-size: 0.9em;
   color: var(--color-gray);
@@ -138,6 +130,21 @@ p {
   box-shadow: 2px 3px 39px 1px rgba(112, 94, 112, 0.75);
 }
 
+/* ------------------------------Header------------------------------ */
+.header__logo {
+  width: 150px;
+}
+/* ------------------------------Footer------------------------------ */
+/* .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+} */
+.footer__logo {
+  width: 80px;
+}
+
 /* ------------------------------Hero Section------------------------------ */
 .hero {
   display: flex;
@@ -150,7 +157,6 @@ p {
 
 .hero__title {
   font-weight: bold;
-  line-height: 1;
   background: -webkit-linear-gradient(
     110deg,
     hsla(var(--color-gradient1, 1)) 0%,
@@ -199,11 +205,10 @@ p {
 
 /* ------------------------------Project Summary------------------------------ */
 .projectSummary {
-  /* max-width: 60rem; */
   min-height: 100vh;
 }
 
-/* ------------------------------Project Summary------------------------------ */
+/* ------------------------------Project & Finance Structure------------------------------ */
 .projectFinance {
   min-height: 100vh;
 }
@@ -237,6 +242,7 @@ p {
 }
 
 @media (min-width: 768px) {
+  /* Hero Section------------------------------ */
   .hero {
     flex-direction: row;
     padding: 6.5em 0;
@@ -249,10 +255,12 @@ p {
     width: 300px;
   }
 
+  /* Existing Projects Section------------------------------ */
   .existingProjects h2 {
     text-align: left;
   }
 
+  /* Project Detail------------------------------ */
   .projectDetail__left-col {
     height: 100%;
     width: 100%;
