@@ -1,0 +1,18 @@
+.statistics {
+  border-radius: 1rem;
+}
+
+.statistics__title {
+  cursor: help;
+}
+
+.statistics__subtitle {
+  font-weight: bold;
+}
+
+/* TODO: Check this media-query and reassign it according to bootstrap breakpoint */
+@media only screen and (min-width: 600px) {
+  .statistics {
+    display: flex;
+  }
+}

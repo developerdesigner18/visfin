@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 // Components
 import FormContainer from "../components/FormContainer";
 // Bootstrap
-import { Button, Card, Col, Form, Row } from "react-bootstrap";
-import { LOGO_DARK, LOGO_LIGHT } from "../AppConfig";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { LOGO_LIGHT } from "../AppConfig";
 
-const Home = () => {
+const Login = () => {
   return (
     <div className="home">
       {/* ---------------------------------------Hero Section--------------------------------------- */}
@@ -52,7 +52,7 @@ const Home = () => {
           <Col>
             New to VisualFin?{" "}
             <Link
-              to=""
+              to="/register"
               // to={redirect ? `/register?redirect=${redirect}` : "/register"}
             >
               Register
@@ -64,4 +64,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;

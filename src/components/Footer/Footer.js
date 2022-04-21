@@ -1,8 +1,21 @@
+import { useLocation } from "react-router-dom";
 // Bootstrap
 import { Col, Container, Row } from "react-bootstrap";
-import { LOGO_DARK } from "../AppConfig";
+import { LOGO_DARK } from "../../AppConfig";
+// css
+import "./Footer.css";
 
 const Footer = () => {
+  const location = useLocation();
+
+  if (
+    // location.pathname === "/" ||
+    location.pathname === "/login" ||
+    location.pathname === "/register"
+  ) {
+    return "";
+  }
+
   return (
     <div className="footer border__visfin border__visfin--top">
       <footer className="bg-secondary">

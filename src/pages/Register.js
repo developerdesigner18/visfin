@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 // Components
 import FormContainer from "../components/FormContainer";
 // Bootstrap
-import { Button, Card, Col, Form, Row } from "react-bootstrap";
-import { LOGO_DARK, LOGO_LIGHT } from "../AppConfig";
+import { Button, Col, Form, Row } from "react-bootstrap";
+import { LOGO_LIGHT } from "../AppConfig";
 
-const Home = () => {
+const Register = () => {
   return (
     <div className="home">
       {/* ---------------------------------------Hero Section--------------------------------------- */}
@@ -16,20 +16,32 @@ const Home = () => {
         <img style={{ width: "200px" }} src={LOGO_LIGHT} alt="VisFin Logo" />
       </div>
 
-      {/* ---------------------------------------Login Section--------------------------------------- */}
+      {/* ---------------------------------------Register Section--------------------------------------- */}
       <div className="home__right">
-        <h1 className="hero__title font-bold mb-5">Login to your account</h1>
+        <h1 className="hero__title font-bold mb-5">Register</h1>
         <FormContainer>
-          <Form
-          // onSubmit={submitHandler}
-          >
+          <Form>
             <Form.Group controlId="email">
               <Form.Label>Email Address</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter email"
-                // value={email}
-                // onChange={(e) => setEmail(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId="company">
+              <Form.Label>Company Name</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter company name"
+              ></Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId="email">
+              <Form.Label>Role</Form.Label>
+              <Form.Control
+                type="role"
+                placeholder="Enter your role"
               ></Form.Control>
             </Form.Group>
 
@@ -38,24 +50,22 @@ const Home = () => {
               <Form.Control
                 type="password"
                 placeholder="Enter password"
-                // value={password}
-                // onChange={(e) => setPassword(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Button className="mt-3" type="submit" variant="primary">
-              Sign In
+              Register
             </Button>
           </Form>
         </FormContainer>
         <Row className="py-3">
           <Col>
-            New to VisualFin?{" "}
+            Already have an account?{" "}
             <Link
-              to=""
+              to="/login"
               // to={redirect ? `/register?redirect=${redirect}` : "/register"}
             >
-              Register
+              Login
             </Link>
           </Col>
         </Row>
@@ -64,4 +74,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Register;

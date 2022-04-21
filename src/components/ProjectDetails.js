@@ -72,9 +72,9 @@ const ProjectDetails = () => {
 
   return (
     <>
-      <Accordion defaultActiveKey={"projectDetails"}>
-        {/* ---------------------------------------Project Details--------------------------------------- */}
-        <Accordion.Item eventKey="projectDetails">
+      {/* <Accordion defaultActiveKey={"projectDetails"}> */}
+      {/* ---------------------------------------Project Details--------------------------------------- */}
+      {/* <Accordion.Item eventKey="projectDetails">
           <Accordion.Header>Project Details</Accordion.Header>
           <Accordion.Body style={{ width: "100%" }}>
             <Form>
@@ -116,12 +116,12 @@ const ProjectDetails = () => {
               </Button>
             </div>
           </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+        </Accordion.Item> */}
+      {/* </Accordion> */}
 
       <Accordion defaultActiveKey={"projectFinance"} alwaysOpen>
         {/* ---------------------------------------Project Finance--------------------------------------- */}
-        <Accordion.Item eventKey="projectFinance">
+        {/* <Accordion.Item eventKey="projectFinance">
           <Accordion.Header>Project Finance</Accordion.Header>
           <Accordion.Body>
             <Form>
@@ -208,7 +208,7 @@ const ProjectDetails = () => {
               </Form.Group>
             </Form>
           </Accordion.Body>
-        </Accordion.Item>
+        </Accordion.Item> */}
 
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="droppable">
