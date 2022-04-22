@@ -1,18 +1,31 @@
-.statistics {
-  border-radius: 1rem;
+.dashboard__container {
+  display: flex;
+  flex-direction: column;
 }
 
-.statistics__title {
+.dashboard__heading {
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-top: 2rem;
+}
+
+.dashboard__container {
+  border-radius: 1rem;
+  display: flex;
+}
+
+.dashboard__title {
+  font-size: 1rem;
   cursor: help;
 }
 
-.statistics__subtitle {
+.dashboard__subtitle {
   font-weight: bold;
 }
 
 /* TODO: Check this media-query and reassign it according to bootstrap breakpoint */
-@media only screen and (min-width: 600px) {
-  .statistics {
-    display: flex;
+@media only screen and (min-width: 768px) {
+  .dashboard__container {
+    flex-direction: row;
   }
 }

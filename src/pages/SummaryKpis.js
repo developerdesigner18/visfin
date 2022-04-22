@@ -82,12 +82,8 @@ const SummaryKpis = () => {
           </Col>
 
           {/* ---------------------------------------Dashboards--------------------------------------- */}
-          <div className="dashboards">
-            <h5>Financial Dashboard</h5>
-            <FinancialDashboard />
-            <h5>Sustainability Dashboard</h5>
-            <SustainabilityDashboard />
-          </div>
+          <FinancialDashboard />
+          <SustainabilityDashboard />
         </Row>
       </div>
     </Container>

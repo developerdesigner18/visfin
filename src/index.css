@@ -193,17 +193,9 @@ p {
 
 /* ------------------------------Project Detail------------------------------ */
 .projectDetail {
-  max-width: 60rem;
-  min-height: 100vh;
 }
 
 .projectDetail__details {
-}
-
-.dashboards h5 {
-  font-weight: bold;
-  color: var(--color-primary);
-  margin-top: 2rem;
 }
 
 /* ------------------------------Project Summary------------------------------ */
