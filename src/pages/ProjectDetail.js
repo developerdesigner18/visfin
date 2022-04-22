@@ -6,6 +6,7 @@ import Divider from "../components/Divider";
 import Tiles from "../components/Tiles";
 import FinancialDashboard from "../components/Dashboards/FinancialDashboard";
 import SustainabilityDashboard from "../components/Dashboards/SustainabilityDashboard";
+import GoogleMap from "../components/GoogleMap/GoogleMap";
 
 const ProjectDetail = () => {
   const params = useParams();
@@ -40,6 +41,8 @@ const ProjectDetail = () => {
           <Col xs={12} md={8}>
             <Tiles />
           </Col>
+
+          <GoogleMap />
 
           {/* ---------------------------------------Dashboards--------------------------------------- */}
           <FinancialDashboard />

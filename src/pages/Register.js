@@ -13,7 +13,7 @@ const Register = () => {
         <div className="home__img">
           <img src="/images/calculator.svg" alt="Calculator vector" />
         </div>
-        <img style={{ width: "200px" }} src={LOGO_LIGHT} alt="VisFin Logo" />
+        <img className="home__logo" src={LOGO_LIGHT} alt="VisFin Logo" />
       </div>
 
       {/* ---------------------------------------Register Section--------------------------------------- */}
