@@ -5,6 +5,8 @@ import Divider from "../components/Divider";
 import ShowInfo from "../components/ShowInfo/ShowInfo";
 import FinancialDashboard from "../components/Dashboards/FinancialDashboard";
 import SustainabilityDashboard from "../components/Dashboards/SustainabilityDashboard";
+// Constants
+import { PREFILL_ALL_INFO } from "../AppConfig";
 
 const ProjectFinance = () => {
   return (
@@ -18,7 +20,7 @@ const ProjectFinance = () => {
           </Col>
           <Col xs={0} md={6}></Col>
           <Col xs={12} md={2}>
-            <ShowInfo info="Info about prefill">
+            <ShowInfo info={PREFILL_ALL_INFO}>
               <Button className="w-100 mb-3">Prefill All</Button>
             </ShowInfo>
           </Col>
