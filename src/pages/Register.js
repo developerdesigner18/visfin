@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 // Bootstrap
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { LOGO_LIGHT } from "../AppConfig";
+import { LOGO_LIGHT } from "../utils/constants";
 
 const Register = () => {
   return (
@@ -63,7 +63,7 @@ const Register = () => {
             Already have an account?{" "}
             <Link
               to="/login"
-              // to={redirect ? `/register?redirect=${redirect}` : "/register"}
+              // to={redirect ? `/login?redirect=${redirect}` : "/login"}
             >
               Login
             </Link>

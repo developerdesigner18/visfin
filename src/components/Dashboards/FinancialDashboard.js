@@ -9,7 +9,7 @@ import {
   PROFIT_ON_COST_INFO,
   TOTAL_COSTS_INFO,
   TOTAL_REVENUE_INFO,
-} from "../../AppConfig";
+} from "../../utils/constants";
 // css
 import "./Dashboard.css";
 

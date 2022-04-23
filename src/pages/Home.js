@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 // Bootstrap
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
-import { LOGO_DARK, LOGO_LIGHT } from "../AppConfig";
+import { LOGO_DARK, LOGO_LIGHT } from "../utils/constants";
 
 const Home = () => {
   return (

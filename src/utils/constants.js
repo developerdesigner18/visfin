@@ -31,3 +31,11 @@ export const ESG_DISCLOSURE_SCORE_INFO = "Info about ESG Disclosure score";
 
 // Prefill All
 export const PREFILL_ALL_INFO = "Info about Prefill All";
+
+// Temporary Login userInfo
+export const USER_INFO = {
+  email: "test@gmail.com",
+  company: "TestNet",
+  role: "CEO",
+  password: "test@123",
+};

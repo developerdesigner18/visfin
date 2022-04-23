@@ -20,7 +20,8 @@ const ProjectDetail = () => {
             <Divider />
             <div className="projectDetail__details">
               <h4>Location</h4>
-              <p>location</p>
+              <GoogleMap margin={false} />
+              <p>Please select the location of this project</p>
               <h4>User</h4>
               <p>Logged in user info goes here</p>
               <h4>Description</h4>

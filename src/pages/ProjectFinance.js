@@ -6,7 +6,7 @@ import ShowInfo from "../components/ShowInfo/ShowInfo";
 import FinancialDashboard from "../components/Dashboards/FinancialDashboard";
 import SustainabilityDashboard from "../components/Dashboards/SustainabilityDashboard";
 // Constants
-import { PREFILL_ALL_INFO } from "../AppConfig";
+import { PREFILL_ALL_INFO } from "../utils/constants";
 
 const ProjectFinance = () => {
   return (

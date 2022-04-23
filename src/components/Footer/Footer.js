@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 // Bootstrap
 import { Col, Container, Row } from "react-bootstrap";
-import { LOGO_DARK } from "../../AppConfig";
+import { LOGO_DARK } from "../../utils/constants";
 // css
 import "./Footer.css";
 

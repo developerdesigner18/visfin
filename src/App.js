@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 // Components
 import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header/Header";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -22,10 +23,18 @@ function App() {
       <ScrollToTop />
       <Header />
       <Routes>
-        <Route path="/" element={<Projects />} />
+        {/* <Route path="/" element={<Projects />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Projects />
+            </ProtectedRoute>
+          }
+        />
+
         <Route path="/project-detail/:name" element={<ProjectDetail />} />
         <Route path="/project-summary" element={<ProjectSummary />} />
         <Route exact path="/project-finance" element={<ProjectFinance />} />

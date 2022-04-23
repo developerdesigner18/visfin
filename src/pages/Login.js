@@ -1,11 +1,47 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // Components
 import FormContainer from "../components/FormContainer";
+import Message from "../components/Message/Message";
+import Loader from "../components/Loader/Loader";
 // Bootstrap
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { LOGO_LIGHT } from "../AppConfig";
+import { Button, Col, Form, Row } from "react-bootstrap";
+// Hooks
+import useLocalStorage from "../hooks/useLocalStorage";
+// Constants
+import { LOGO_LIGHT, USER_INFO } from "../utils/constants";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const [userInfo, setUserInfo] = useLocalStorage("userInfo");
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/projects");
+    }
+  }, [userInfo, navigate]);
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    if (email !== USER_INFO.email || password !== USER_INFO.password) {
+      setError("Wrong Email or password");
+    } else {
+      setUserInfo({
+        email,
+      });
+      navigate("/projects");
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="home">
       {/* ---------------------------------------Hero Section--------------------------------------- */}
@@ -19,17 +55,19 @@ const Login = () => {
       {/* ---------------------------------------Login Section--------------------------------------- */}
       <div className="home__right">
         <h1 className="hero__title font-bold mb-5">Login to your account</h1>
+
+        {error && <Message variant="danger">{error}</Message>}
+        {loading && <Loader />}
+
         <FormContainer>
-          <Form
-          // onSubmit={submitHandler}
-          >
+          <Form onSubmit={handleSignIn}>
             <Form.Group controlId="email">
               <Form.Label>Email Address</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter email"
-                // value={email}
-                // onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
@@ -38,12 +76,17 @@ const Login = () => {
               <Form.Control
                 type="password"
                 placeholder="Enter password"
-                // value={password}
-                // onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
-            <Button className="mt-3" type="submit" variant="primary">
+            <Button
+              className="mt-3"
+              type="submit"
+              variant="primary"
+              disabled={loading}
+            >
               Sign In
             </Button>
           </Form>

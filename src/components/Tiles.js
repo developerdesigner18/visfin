@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { TILES } from "../AppConfig";
+import { TILES } from "../utils/constants";
 
 const Tiles = () => {
   return (

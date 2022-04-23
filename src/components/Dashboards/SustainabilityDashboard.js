@@ -10,7 +10,7 @@ import {
   GROSS_OPERATIONAL_CARBON_INFO,
   TOTAL_ESTIMATED_EXPENDITURE_CARBON_INFO,
   TOTAL_EXPENDITURE_CARBON_INFO,
-} from "../../AppConfig";
+} from "../../utils/constants";
 // css
 import "./Dashboard.css";
 
