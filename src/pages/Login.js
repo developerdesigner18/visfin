@@ -37,7 +37,7 @@ const Login = () => {
       setUserInfo({
         email,
       });
-      navigate("/projects");
+      navigate("/");
     }
     setLoading(false);
   };
