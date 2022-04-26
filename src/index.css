@@ -299,3 +299,9 @@ p {
     width: 100%;
   }
 }
+
+/* ------------------------------Custom styling for bootstrap components------------------------------ */
+.list-group-item,
+.form-control {
+  background-color: hsla(var(--color-gradient2), 0.05);
+}

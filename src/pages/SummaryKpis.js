@@ -4,7 +4,6 @@ import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import Divider from "../components/Divider";
 import FinancialDashboard from "../components/Dashboards/FinancialDashboard";
 import SustainabilityDashboard from "../components/Dashboards/SustainabilityDashboard";
-import ShowInfo from "../components/ShowInfo/ShowInfo";
 
 const SummaryKpis = () => {
   return (
@@ -18,9 +17,7 @@ const SummaryKpis = () => {
           </Col>
           <Col xs={0} md={6}></Col>
           <Col xs={12} md={2}>
-            <ShowInfo info="Info about prefill">
-              <Button className="w-100 mb-3">Print Report</Button>
-            </ShowInfo>
+            <Button className="w-100 mb-3">Print Report</Button>
           </Col>
           <Col xs={12} md={8}></Col>
         </Row>

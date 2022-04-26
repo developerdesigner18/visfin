@@ -2,8 +2,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 // Components
 import ProjectDetails from "../components/ProjectDetails";
-import BarChart from "../components/BarChart";
-import LineChart from "../components/LineChart";
+import Chart from "../components/Chart";
 import FinancialDashboard from "../components/Dashboards/FinancialDashboard";
 import SustainabilityDashboard from "../components/Dashboards/SustainabilityDashboard";
 import Divider from "../components/Divider";
@@ -23,9 +22,9 @@ const BuildCashflows = () => {
         <Row>
           <Col xs={12} md={6} lg={7}>
             {/* ---------------------------------------Bar Chart--------------------------------------- */}
-            <BarChart />
+            <Chart type="bar" />
             {/* ---------------------------------------Line Chart--------------------------------------- */}
-            <LineChart />
+            <Chart type="line" />
           </Col>
 
           <Col xs={12} md={6} lg={5}>

@@ -1,6 +1,6 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 // Pages
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Projects from "./pages/Projects";
@@ -26,21 +26,60 @@ function App() {
         {/* <Route path="/" element={<Projects />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Projects />} />
+
         <Route
-          path="/"
+          path="/project-detail/:name"
           element={
             <ProtectedRoute>
-              <Projects />
+              <ProjectDetail />
             </ProtectedRoute>
           }
         />
-
-        <Route path="/project-detail/:name" element={<ProjectDetail />} />
-        <Route path="/project-summary" element={<ProjectSummary />} />
-        <Route exact path="/project-finance" element={<ProjectFinance />} />
-        <Route exact path="/build-cashflows" element={<BuildCashflows />} />
-        <Route exact path="/summary-kpis" element={<SummaryKpis />} />
-        <Route exact path="/esg-and-sustainability" element={<Esg />} />
+        <Route
+          path="/project-summary"
+          element={
+            <ProtectedRoute>
+              <ProjectSummary />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/project-finance"
+          element={
+            <ProtectedRoute>
+              <ProjectFinance />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/build-cashflows"
+          element={
+            <ProtectedRoute>
+              <BuildCashflows />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/summary-kpis"
+          element={
+            <ProtectedRoute>
+              <SummaryKpis />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/esg-and-sustainability"
+          element={
+            <ProtectedRoute>
+              <Esg />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

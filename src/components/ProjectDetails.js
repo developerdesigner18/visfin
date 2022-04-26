@@ -1,19 +1,10 @@
 import { useState } from "react";
 // Bootstrap
-import {
-  Accordion,
-  Form,
-  Button,
-  Row,
-  Col,
-  InputGroup,
-  Card,
-} from "react-bootstrap";
+import { Accordion, Button, ButtonGroup } from "react-bootstrap";
 // React Beautiful dnd
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 // Components
 import CashFlowForm from "./CashFlowForm";
-import Divider from "./Divider";
 // Dummy Data
 import { cashFlowFormData as data } from "../data/cashFlowFormData";
 
@@ -238,7 +229,8 @@ const ProjectDetails = () => {
           </Droppable>
         </DragDropContext>
       </Accordion>
-      <div className="d-flex justify-content-between mt-1">
+      {/* <div className="d-flex justify-content-between mt-1"> */}
+      <ButtonGroup className="mt-1">
         <Button onClick={handleAddNewGroup}>
           <i className="fa-solid fa-plus"></i> Add New Group
         </Button>
@@ -248,7 +240,8 @@ const ProjectDetails = () => {
         <Button>
           <i className="fa-solid fa-floppy-disk"></i> Save
         </Button>
-      </div>
+      </ButtonGroup>
+      {/* </div> */}
     </>
   );
 };
